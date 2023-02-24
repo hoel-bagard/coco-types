@@ -1,0 +1,23 @@
+name: pre-commit
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: "true"
+      - name: Copy Configs
+        run: |
+          cp config/data_config_template.py config/data_config.py
+          cp config/model_config_template.py config/model_config.py
+      - uses: actions/setup-python@v2
+      - run: pip install pre-commit
+      - run: pre-commit --version
+      - run: pre-commit install
+      - run: pre-commit run --all-files
