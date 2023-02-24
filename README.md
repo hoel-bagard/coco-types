@@ -33,8 +33,8 @@ with open("path/to/json", encoding="utf-8") as data_file:
 img = dataset.images[0]
 print(f"Image's filename {img.file_name}")
 print(f"Image's id {img.id}")
-print(f"Image's id {img.height}")
-print(f"Image's id {img.width}")
+print(f"Image's height {img.height}")
+print(f"Image's width {img.width}")
 
 img_annotations = [annotation for annotation in dataset.annotations
                    if annotation.image_id == img.id]
