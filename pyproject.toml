@@ -21,6 +21,14 @@ dynamic = ["version"]
 dependencies = ["pydantic"]
 requires-python = ">=3.9"
 
+[project.urls]
+"Homepage" = "https://github.com/hoel-bagard/coco_types"
+"Bug Tracker" = "https://github.com/hoel-bagard/coco_types/issues"
+
+[project.optional-dependencies]
+test = ["pytest"]
+dev = ["pre-commit", "pip-tools", "flake8", "flake8-docstrings", "pep8-naming", "flake8-import-order", "flake8-bugbear", "flake8-quotes", "flake8-comprehensions"]
+
 [tool.hatch.version]
 path = "coco_types/__init__.py"
 
@@ -33,14 +41,10 @@ exclude = [
   "/docs",
 ]
 
-
-[project.urls]
-"Homepage" = "https://github.com/hoel-bagard/coco_types"
-"Bug Tracker" = "https://github.com/hoel-bagard/coco_types/issues"
-
-[project.optional-dependencies]
-test = ["pytest"]
-dev = ["pre-commit", "pip-tools", "flake8", "flake8-docstrings", "pep8-naming", "flake8-import-order", "flake8-bugbear", "flake8-quotes", "flake8-comprehensions"]
+[tool.hatch.envs.pypi.scripts]
+# hatch run pypi:deploy_test
+deploy_test = "hatch build --clean && hatch publish -r test"
+deploy = "hatch build --clean && hatch publish"
 
 [tool.isort]
 line_length = 120
