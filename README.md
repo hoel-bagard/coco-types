@@ -1,6 +1,6 @@
 # coco_utils
 
-Note: This packages loads the data as is and does not create dictionaries mapping ids to lists of images/annotations/categories.
+Note: This package loads the data as is and does not create dictionaries mapping ids to lists of images/annotations/categories.
 
 ## Loading COCO data
 
@@ -56,4 +56,4 @@ print(f"Category's supercategory {cat.supercategory}")
 
 ### Keypoints
 If using a dataset with keypoints (`coco_types.DatasetKP`), then annotations will have two additional attributes: `keypoints` and `num_keypoints`.\
-In the same way, categories will have  two additional attributes: `keypoints` and `skeleton`.\
+In the same way, categories will have  two additional attributes: `keypoints` and `skeleton`.
