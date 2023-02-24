@@ -42,9 +42,9 @@ exclude = [
 ]
 
 [tool.hatch.envs.pypi.scripts]
-# hatch run pypi:deploy_test
-deploy_test = "hatch build --clean && hatch publish -r test"
-deploy = "hatch build --clean && hatch publish"
+# hatch run pypi:publish_test
+publish_test = "hatch build --clean && hatch publish -r test"
+publish = "hatch build --clean && hatch publish"
 
 [tool.isort]
 line_length = 120
