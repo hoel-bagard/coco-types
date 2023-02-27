@@ -1,6 +1,6 @@
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
-import coco_types.coco_dict_types as dict_types  # pyright: ignore[reportUnusedImport]
+import coco_types.dicts  # pyright: ignore[reportUnusedImport]
 
 from .coco_keypoints import AnnotationKP, CategoryKP, DatasetKP
 from .coco_object_detection import (Annotation, BaseModel, Category, Dataset, EncodedRLE, Image, Info, Licence, RLE,

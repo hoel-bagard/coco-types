@@ -1,6 +1,21 @@
 from typing import TypedDict
 
 
+class Info(TypedDict):
+    year: int
+    version: str
+    description: str
+    contributor: str
+    url: str
+    date_created: str
+
+
+class Licence(TypedDict):
+    id: int
+    name: str
+    url: str
+
+
 class Image(TypedDict):
     id: int
     width: int
@@ -41,3 +56,11 @@ class Category(TypedDict):
     id: int
     name: str
     supercategory: str
+
+
+class Dataset(TypedDict):
+    info: Info
+    licences: list[Licence]
+    images: list[Image]
+    annotations: list[Annotation]
+    categories: list[Category]
