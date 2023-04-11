@@ -2,6 +2,13 @@
 
 Note: This package loads the data as is and does not create dictionaries mapping ids to lists of images/annotations/categories.
 
+## Installation
+
+The package is available on pypi [here](https://pypi.org/project/coco-types/), you can install it with:
+```
+pip install coco-types
+```
+
 ## Loading COCO data
 
 You can load COCO dataset labels into Pydantic objects by using the `Dataset` and `DatasetKP` classes.
