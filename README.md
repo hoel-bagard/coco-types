@@ -1,4 +1,4 @@
-# coco_utils
+# COCO Types
 
 Note: This package loads the data as is and does not create dictionaries mapping ids to lists of images/annotations/categories.
 
