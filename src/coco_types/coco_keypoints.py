@@ -1,20 +1,23 @@
+from typing import Generic, TypeVar
+
 from pydantic import validator
 
-from .coco_object_detection import Annotation, Category, Dataset
+from .coco_object_detection import Annotation, Category, Dataset, EncodedRLE, TPolygon_segmentation, RLE
 
+TSegmentation = TypeVar("TSegmentation", TPolygon_segmentation, RLE, EncodedRLE)
 
-class AnnotationKP(Annotation):
+class AnnotationKP(Annotation[TSegmentation], Generic[TSegmentation]):
     keypoints: list[int]
     num_keypoints: int
 
     @validator("keypoints")
-    def keypoints_length(cls, keypoints: list[int]):  # noqa: N805
+    def keypoints_length(cls, keypoints: list[int]) -> list[int]:
         assert len(keypoints) % 3 == 0, (
             "Keypoints should be a length 3k array where k is the total number of keypoints defined for the category")
         return keypoints
 
     @validator("keypoints")
-    def keypoints_visibility_flag(cls, keypoints: list[int]):  # noqa: N805
+    def keypoints_visibility_flag(cls, keypoints: list[int]) -> list[int]:
         for i in range(2, len(keypoints), 3):
             assert keypoints[i] in (0, 1, 2), (
                 f"The visibility flag can only take the values 0 (nto labeled), 1 (labeled but not visible) "
@@ -22,7 +25,7 @@ class AnnotationKP(Annotation):
         return keypoints
 
     @validator("num_keypoints")
-    def num_keypoints_matches_keypoints_length(cls, num_keypoints: int, values: dict[str, list[int]]):  # noqa: N805
+    def num_keypoints_matches_keypoints_length(cls, num_keypoints: int, values: dict[str, list[int]]) -> int:
         if len(values["keypoints"]) // 3 != num_keypoints:
             raise ValueError(f"Length of the keypoints list ({len(values['keypoints'])}) does not match "
                              f"the number of keypoints ({num_keypoints}).")
@@ -35,5 +38,5 @@ class CategoryKP(Category):
 
 
 class DatasetKP(Dataset):
-    annotations: list[AnnotationKP]
+    annotations: list[AnnotationKP[TPolygon_segmentation] | AnnotationKP[RLE] | AnnotationKP[EncodedRLE]]
     categories: list[CategoryKP]

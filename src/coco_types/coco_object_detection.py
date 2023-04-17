@@ -68,5 +68,5 @@ class Dataset(BaseModel):
     info: Optional[Info] = None
     licences: Optional[list[Licence]] = None
     images: list[Image]
-    annotations: list[Annotation]
+    annotations: list[Annotation[TPolygon_segmentation] | Annotation[RLE] | Annotation[EncodedRLE]]
     categories: list[Category]
