@@ -68,3 +68,7 @@ In the same way, categories will have  two additional attributes: `keypoints` an
 
 ## TypedDict versions
 `TypedDict` version of the objects can be accessed using `coco_types.dicts.*` (for example `coco_types.dicts.Dataset`). This can be useful if you have data that is slightly malformed / follows a slightly different format but is still usable.
+
+
+## TODOs:
+- Rename EncodedRLE to COCO_RLE ?

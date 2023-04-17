@@ -1,8 +1,8 @@
 from typing import Generic, TypeVar
 
-from pydantic import validator
+from pydantic import validator  # pyright: ignore[reportUnknownVariableType]
 
-from .coco_object_detection import Annotation, Category, Dataset, EncodedRLE, TPolygon_segmentation, RLE
+from .coco_object_detection import Annotation, Category, Dataset, EncodedRLE, RLE, TPolygon_segmentation
 
 TSegmentation = TypeVar("TSegmentation", TPolygon_segmentation, RLE, EncodedRLE)
 

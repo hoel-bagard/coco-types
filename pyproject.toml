@@ -62,7 +62,7 @@ addopts = [
 [tool.ruff]
 select = ["A", "B", "C4", "E", "I", "Q", "UP", "ANN", "S", "BLE", "COM", "DTZ", "PIE", "PT", "RSE", "SIM","PTH", "NPY", "RUF"]
 ignore = ["ANN101", "D1", "D401", "D204", "D203", "D213", "S101", "PLR2004", "A002", "A003"]
-line-length = 10000
+line-length = 120
 
 [tool.ruff.isort]
 order-by-type = false
@@ -71,8 +71,8 @@ order-by-type = false
 docstring-quotes = "double"
 
 [tool.pyright]
-include = ["src/pycocotools-stubs"]
-ignore = ["src/pycocotools-stubs/__init__.pyi"]
+include = ["src/coco_types"]
+ignore = ["src/coco_types/__init__.pyi"]
 
 strictListInference = true
 strictDictionaryInference = true
