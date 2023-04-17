@@ -1,6 +1,7 @@
-from typing import Optional
+from typing import Optional, Generic, TypeVar
 
 from pydantic import BaseModel
+from pydantic.generics import GenericModel
 
 
 class Info(BaseModel):
@@ -38,7 +39,10 @@ class EncodedRLE(BaseModel):
     counts: str | bytes
 
 
-class Annotation(BaseModel):
+TSegmentation = TypeVar("TSegmentation", TPolygon_segmentation, RLE, EncodedRLE)
+
+
+class Annotation(GenericModel, Generic[TSegmentation]):
     id: int
     image_id: int
     category_id: int
@@ -46,7 +50,7 @@ class Annotation(BaseModel):
     # Exemple of polygon: "segmentation": [[510.66,423.01,511.72,420.03,...,510.45,423.01]]
     # Exemple of RLE: "segmentation": {"size": [40, 40], "counts": [245, 5, 35, 5, 35, 5, 35, 5, 35, 5, 1190]}
     # Exemple of encoded RLE: "segmentation": {"size": [480, 640], "counts": "aUh2b0X...BgRU4"}
-    segmentation: TPolygon_segmentation | RLE | EncodedRLE
+    segmentation: TSegmentation
     area: float
     # The COCO bounding box format is [top left x position, top left y position, width, height].
     # bbox exemple:  "bbox": [473.07,395.93,38.65,28.67]
