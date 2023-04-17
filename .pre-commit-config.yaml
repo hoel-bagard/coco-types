@@ -20,31 +20,13 @@ repos:
         exclude: typings
       - id: mixed-line-ending
 
-  - repo: https://github.com/PyCQA/flake8
-    rev: 5.0.4
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: "v0.0.253"
     hooks:
-      - id: flake8
-        additional_dependencies:
-          - flake8-bugbear
-          - flake8-comprehensions
-          - flake8-docstrings
-          - flake8-quotes
-          - pep8-naming
-          - flake8-import-order
+      - id: ruff
 
   - repo: https://github.com/RobertCraigie/pyright-python
-    rev: v1.1.271
+    rev: v1.1.300
     hooks:
     - id: pyright
       additional_dependencies: ["pydantic"]
-
-  # - repo: https://github.com/PyCQA/isort
-  #   rev: 5.10.1
-  #   hooks:
-  #     - id: isort
-
-  # - repo: https://github.com/compilerla/conventional-pre-commit
-  #   rev: v2.0.0
-  #   hooks:
-  #     - id: conventional-pre-commit
-  #       stages: [commit-msg]

@@ -20,6 +20,9 @@ license = {text = "MIT"}
 dynamic = ["version"]
 dependencies = ["pydantic"]
 requires-python = ">=3.9"
+packages = [
+    { "include" = "coco_types"}
+]
 
 [project.urls]
 "Homepage" = "https://github.com/hoel-bagard/coco_types"
@@ -27,10 +30,11 @@ requires-python = ">=3.9"
 
 [project.optional-dependencies]
 test = ["pytest"]
-dev = ["pre-commit", "pip-tools", "flake8", "flake8-docstrings", "pep8-naming", "flake8-import-order", "flake8-bugbear", "flake8-quotes", "flake8-comprehensions"]
+dev = ["pre-commit", "pip-tools", "ruff", "pyright"]
+build = ["hatch"]
 
 [tool.hatch.version]
-path = "coco_types/__init__.py"
+path = "src/coco_types/__init__.py"
 
 [tool.hatch.build.targets.sdist]
 exclude = [
@@ -41,18 +45,67 @@ exclude = [
   "/docs",
 ]
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/coco_types"]
+
 [tool.hatch.envs.pypi.scripts]
 # hatch run pypi:publish_test
 publish_test = "hatch build --clean && hatch publish -r test"
 publish = "hatch build --clean && hatch publish"
-
-[tool.isort]
-line_length = 120
-case_sensitive = false
-order_by_type = false
 
 [tool.pytest.ini_options]
 # https://docs.pytest.org/en/7.1.x/explanation/goodpractices.html
 addopts = [
     "--import-mode=importlib",
 ]
+
+[tool.ruff]
+select = ["A", "B", "C4", "E", "I", "Q", "UP", "ANN", "S", "BLE", "COM", "DTZ", "PIE", "PT", "RSE", "SIM","PTH", "NPY", "RUF"]
+ignore = ["ANN101", "D1", "D401", "D204", "D203", "D213", "S101", "PLR2004", "A002", "A003"]
+line-length = 10000
+
+[tool.ruff.isort]
+order-by-type = false
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.pyright]
+include = ["src/pycocotools-stubs"]
+ignore = ["src/pycocotools-stubs/__init__.pyi"]
+
+strictListInference = true
+strictDictionaryInference = true
+strictSetInference = true
+
+reportMissingModuleSource = false
+reportMissingImports = true
+reportMissingTypeStubs = false
+reportUnusedImport = true
+reportUnusedClass = "warning"
+reportUnusedFunction = "warning"
+reportUnusedVariable = "warning"
+reportDuplicateImport = "warning"
+reportUntypedNamedTuple = "warning"
+reportUntypedFunctionDecorator = "warning"
+reportUntypedClassDecorator = "warning"
+reportMissingSuperCall = false
+reportUnknownArgumentType = "warning"
+reportUnknownLambdaType = "warning"
+reportUnknownVariableType = "warning"
+reportUnknownMemberType = false
+reportMissingParameterType = "warning"
+reportMissingTypeArgument = "warning"
+reportCallInDefaultInitializer = false
+reportUnnecessaryIsInstance = "warning"
+reportUnnecessaryCast = "warning"
+reportUnnecessaryComparison = "warning"
+reportImplicitStringConcatenation = false
+reportUnusedCallResult = false
+reportUnusedExpression = "warning"
+reportUnnecessaryTypeIgnoreComment = "warning"
+reportMatchNotExhaustive = "warning"
+
+pythonVersion = "3.10"
+pythonPlatform = "Linux"
+
