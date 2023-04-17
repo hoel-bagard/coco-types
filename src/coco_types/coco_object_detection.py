@@ -1,4 +1,4 @@
-from typing import Generic, Optional, TypeVar
+from typing import Generic, TypeVar
 
 from pydantic import BaseModel
 from pydantic.generics import GenericModel
@@ -65,8 +65,8 @@ class Category(BaseModel):
 
 
 class Dataset(BaseModel):
-    info: Optional[Info] = None
-    licences: Optional[list[Licence]] = None
+    info: Info | None = None
+    licences: list[Licence] | None = None
     images: list[Image]
     annotations: list[Annotation[TPolygon_segmentation] | Annotation[RLE] | Annotation[EncodedRLE]]
     categories: list[Category]
