@@ -1,8 +1,10 @@
+from pathlib import Path
+
 import coco_types
 
 
-def test_can_parse_sample_file():
-    with open("data_samples/coco_25k/annotations.json", encoding="utf-8") as data_file:
+def test_can_parse_sample_file() -> None:
+    with Path("data_samples/coco_25k/annotations.json").open(encoding="utf-8") as data_file:
         dataset = coco_types.Dataset.parse_raw(data_file.read())
 
     assert dataset.images[0].file_name == "000000174482.jpg"
