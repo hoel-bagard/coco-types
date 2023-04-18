@@ -1,10 +1,10 @@
-from typing import Generic, TypeVar
+from typing import Generic, TypeAlias, TypeVar
 
 from pydantic import validator  # pyright: ignore[reportUnknownVariableType]
 
-from .coco_object_detection import Annotation, Category, Dataset, EncodedRLE, RLE, TPolygon_segmentation
+from .coco_object_detection import Annotation, Category, COCO_RLE, Dataset, RLE, TPolygonSegmentation
 
-TSegmentation = TypeVar("TSegmentation", TPolygon_segmentation, RLE, EncodedRLE)
+TSegmentation = TypeVar("TSegmentation", TPolygonSegmentation, RLE, COCO_RLE)
 
 class AnnotationKP(Annotation[TSegmentation], Generic[TSegmentation]):
     keypoints: list[int]
@@ -31,6 +31,7 @@ class AnnotationKP(Annotation[TSegmentation], Generic[TSegmentation]):
                              f"the number of keypoints ({num_keypoints}).")
         return num_keypoints
 
+AnnotationKPAny: TypeAlias = AnnotationKP[TPolygonSegmentation] | AnnotationKP[RLE] | AnnotationKP[COCO_RLE]
 
 class CategoryKP(Category):
     keypoints: list[str]
@@ -38,5 +39,5 @@ class CategoryKP(Category):
 
 
 class DatasetKP(Dataset):
-    annotations: list[AnnotationKP[TPolygon_segmentation] | AnnotationKP[RLE] | AnnotationKP[EncodedRLE]]
+    annotations: list[AnnotationKPAny]
     categories: list[CategoryKP]

@@ -1,21 +1,22 @@
 __version__ = "0.0.5"
 
-import coco_types.dicts  # pyright: ignore[reportUnusedImport]
-
+from . import dicts  # pyright: ignore[reportUnusedImport]
 from .coco_keypoints import AnnotationKP, CategoryKP, DatasetKP
 from .coco_object_detection import (
     Annotation,
+    AnnotationAny,
     Category,
+    COCO_RLE,
     Dataset,
-    EncodedRLE,
     Image,
     Info,
     Licence,
     RLE,
-    TPolygon_segmentation,
+    TPolygonSegmentation,
 )
 
 __all__ = [
-    "Annotation", "Licence", "Category", "Dataset", "EncodedRLE", "Image", "RLE", "Info", "TPolygon_segmentation",
+    "Annotation", "AnnotationAny", "Category", "COCO_RLE", "Dataset", "Image", "Info", "RLE", "Licence",
+    "TPolygonSegmentation",
     "AnnotationKP", "CategoryKP", "DatasetKP",
 ]
