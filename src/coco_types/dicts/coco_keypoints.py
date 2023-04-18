@@ -1,16 +1,11 @@
-from typing import TypeAlias, TypedDict, TypeVar
+from typing import TypedDict
 
-from .coco_object_detection import Annotation, Category, COCO_RLE, Image, Info, Licence, RLE, TPolygonSegmentation
-
-_TSegmentation = TypeVar("_TSegmentation", TPolygonSegmentation, RLE, COCO_RLE)
+from .coco_object_detection import Annotation, Category, Image, Info, Licence
 
 
-class AnnotationKP(Annotation[_TSegmentation]):
+class AnnotationKP(Annotation):
     keypoints: list[int]
     num_keypoints: int
-
-
-AnnotationKPAny: TypeAlias = AnnotationKP[TPolygonSegmentation] | AnnotationKP[RLE] | AnnotationKP[COCO_RLE]
 
 
 class CategoryKP(Category):
@@ -22,5 +17,5 @@ class DatasetKP(TypedDict):
     info: Info
     licences: list[Licence]
     images: list[Image]
-    annotations: list[AnnotationKPAny]
+    annotations: list[AnnotationKP]
     categories: list[CategoryKP]
