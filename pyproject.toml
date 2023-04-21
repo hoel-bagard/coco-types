@@ -22,8 +22,8 @@ dependencies = ["pydantic"]
 requires-python = ">=3.9"
 
 [project.urls]
-"Homepage" = "https://github.com/hoel-bagard/coco_types"
-"Bug Tracker" = "https://github.com/hoel-bagard/coco_types/issues"
+"Homepage" = "https://github.com/hoel-bagard/coco-types"
+"Bug Tracker" = "https://github.com/hoel-bagard/coco-types/issues"
 
 [project.optional-dependencies]
 test = ["pytest"]
