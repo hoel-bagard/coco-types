@@ -1,7 +1,7 @@
-__version__ = "0.0.6"
+__version__ = "0.0.7"
 
 from . import dicts  # pyright: ignore[reportUnusedImport]
-from .coco_keypoints import AnnotationKP, CategoryKP, DatasetKP
+from .coco_keypoints import AnnotationKP, AnnotationKPAny, CategoryKP, DatasetKP
 from .coco_object_detection import (
     Annotation,
     AnnotationAny,
@@ -18,5 +18,5 @@ from .coco_object_detection import (
 __all__ = [
     "Annotation", "AnnotationAny", "Category", "COCO_RLE", "Dataset", "Image", "Info", "RLE", "Licence",
     "TPolygonSegmentation",
-    "AnnotationKP", "CategoryKP", "DatasetKP",
+    "AnnotationKPAny", "AnnotationKP", "CategoryKP", "DatasetKP",
 ]
