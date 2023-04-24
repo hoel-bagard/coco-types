@@ -29,6 +29,7 @@ requires-python = ">=3.9"
 test = ["pytest"]
 dev = ["pre-commit", "pip-tools", "ruff", "pyright"]
 build = ["hatch"]
+flake8 = ["flake8", "flake8-bugbear", "flake8-comprehensions", "flake8-docstrings", "flake8-builtins", "flake8-quotes", "pep8-naming", "flake8-import-order", "flake8-noqa", "flake8-broken-line", "flake8-commas", "Flake8-pyproject"]
 
 [tool.hatch.version]
 path = "src/coco_types/__init__.py"
@@ -105,3 +106,29 @@ reportMatchNotExhaustive = "warning"
 
 pythonVersion = "3.10"
 pythonPlatform = "Linux"
+
+[tool.flake8]
+max-line-length = 120
+docstring-convention = "google"
+import-order-style = "smarkets"
+application_import_names = "src"
+
+# D1    # Do not require docstrings
+# W503  # Line break occurred before a binary operator  (Should already be gone so...)
+# E226  # Missing whitespace around arithmetic operator  --> 0.1*b + 0.2*c is considered "wrong"
+# N805  # first argument of a method should be named 'self'
+# A003  # class attribute "id" is shadowing a python builtin
+ignore = ["D1", "W503", "E226", "N805", "A003"]
+inline-quotes = "double"
+
+# F401  # Imported but unused
+# N801  # class name 'COCO_RLE' should use CapWords convention
+per-file-ignores = [
+    "__init__.py:F401,F403",
+    "*detection.py:N801"
+]
+
+# Cyclomatic complexity for functions
+max-complexity = 20
+
+exclude = ["env", "venv"]

@@ -6,4 +6,5 @@ pip-compile --output-file=requirements/requirements.txt --resolver=backtracking 
 pip-compile --extra=test --output-file=requirements/requirements-test.txt --resolver=backtracking pyproject.toml
 pip-compile --extra=dev --output-file=requirements/requirements-dev.txt --resolver=backtracking pyproject.toml
 pip-compile --extra=build --output-file=requirements/requirements-build.txt --resolver=backtracking pyproject.toml
+pip-compile --extra=flake8 --output-file=requirements/requirements-flake8.txt --resolver=backtracking pyproject.toml
 ```

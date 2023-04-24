@@ -57,7 +57,9 @@ class Annotation(GenericModel, Generic[_TSegmentation]):
     bbox: list[float]
     iscrowd: Literal[0] | Literal[1]
 
+
 AnnotationAny: TypeAlias = Annotation[TPolygonSegmentation] | Annotation[RLE] | Annotation[COCO_RLE]
+
 
 class Category(BaseModel):
     id: int

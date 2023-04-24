@@ -6,6 +6,7 @@ from .coco_object_detection import Annotation, Category, COCO_RLE, Dataset, RLE,
 
 TSegmentation = TypeVar("TSegmentation", TPolygonSegmentation, RLE, COCO_RLE)
 
+
 class AnnotationKP(Annotation[TSegmentation], Generic[TSegmentation]):
     keypoints: list[int]
     num_keypoints: int
@@ -31,7 +32,9 @@ class AnnotationKP(Annotation[TSegmentation], Generic[TSegmentation]):
                              f"the number of keypoints ({num_keypoints}).")
         return num_keypoints
 
+
 AnnotationKPAny: TypeAlias = AnnotationKP[TPolygonSegmentation] | AnnotationKP[RLE] | AnnotationKP[COCO_RLE]
+
 
 class CategoryKP(Category):
     keypoints: list[str]
