@@ -89,3 +89,6 @@ class EvaluationResult(BaseModel):
     dtScores: list[float]
     gtIgnore: npt.NDArray[np.float64]
     dtIgnore: npt.NDArray[np.float64]
+
+    class Config:
+        arbitrary_types_allowed = True
