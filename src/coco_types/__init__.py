@@ -1,4 +1,4 @@
-__version__ = "0.0.8"
+__version__ = "0.0.9"
 
 from . import dicts  # pyright: ignore[reportUnusedImport]
 from .coco_keypoints import AnnotationKP, AnnotationKPAny, CategoryKP, DatasetKP
