@@ -1,5 +1,8 @@
 from typing import Literal, TypeAlias, TypedDict
 
+import numpy as np
+import numpy.typing as npt
+
 
 class Info(TypedDict):
     year: int
@@ -63,3 +66,17 @@ class Dataset(TypedDict):
     images: list[Image]
     annotations: list[Annotation]
     categories: list[Category]
+
+
+class EvaluationResult(TypedDict):
+    image_id: int
+    category_id: int
+    aRng: list[int]
+    maxDet: int
+    dtIds: list[int]
+    gtIds: list[int]
+    dtMatches: npt.NDArray[np.float64]
+    gtMatches: npt.NDArray[np.float64]
+    dtScores: list[float]
+    gtIgnore: npt.NDArray[np.float64]
+    dtIgnore: npt.NDArray[np.float64]

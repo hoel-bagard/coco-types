@@ -8,6 +8,7 @@ from .coco_object_detection import (
     Category,
     COCO_RLE,
     Dataset,
+    EvaluationResult,
     Image,
     Info,
     Licence,
@@ -16,7 +17,7 @@ from .coco_object_detection import (
 )
 
 __all__ = [
-    "Annotation", "AnnotationAny", "Category", "COCO_RLE", "Dataset", "Image", "Info", "RLE", "Licence",
-    "TPolygonSegmentation",
+    "Annotation", "AnnotationAny", "Category", "COCO_RLE", "Dataset", "EvaluationResult", "Image", "Info", "RLE",
+    "Licence", "TPolygonSegmentation",
     "AnnotationKPAny", "AnnotationKP", "CategoryKP", "DatasetKP",
 ]

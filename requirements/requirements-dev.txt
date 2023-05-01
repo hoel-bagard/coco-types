@@ -12,39 +12,41 @@ click==8.1.3
     # via pip-tools
 distlib==0.3.6
     # via virtualenv
-filelock==3.11.0
+filelock==3.12.0
     # via virtualenv
-identify==2.5.22
+identify==2.5.23
     # via pre-commit
 nodeenv==1.7.0
     # via
     #   pre-commit
     #   pyright
+numpy==1.24.3
+    # via coco-types (pyproject.toml)
 packaging==23.1
     # via build
 pip-tools==6.13.0
-    # via coco_types (pyproject.toml)
-platformdirs==3.2.0
+    # via coco-types (pyproject.toml)
+platformdirs==3.5.0
     # via virtualenv
 pre-commit==3.2.2
-    # via coco_types (pyproject.toml)
+    # via coco-types (pyproject.toml)
 pydantic==1.10.7
-    # via coco_types (pyproject.toml)
+    # via coco-types (pyproject.toml)
 pyproject-hooks==1.0.0
     # via build
-pyright==1.1.303
-    # via coco_types (pyproject.toml)
+pyright==1.1.305
+    # via coco-types (pyproject.toml)
 pyyaml==6.0
     # via pre-commit
-ruff==0.0.261
-    # via coco_types (pyproject.toml)
+ruff==0.0.263
+    # via coco-types (pyproject.toml)
 tomli==2.0.1
     # via
     #   build
     #   pyproject-hooks
 typing-extensions==4.5.0
     # via pydantic
-virtualenv==20.21.0
+virtualenv==20.23.0
     # via pre-commit
 wheel==0.40.0
     # via pip-tools

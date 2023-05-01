@@ -41,6 +41,8 @@ flake8-quotes==3.3.2
     # via coco-types (pyproject.toml)
 mccabe==0.7.0
     # via flake8
+numpy==1.24.3
+    # via coco-types (pyproject.toml)
 pep8-naming==0.13.3
     # via coco-types (pyproject.toml)
 pycodestyle==2.9.1

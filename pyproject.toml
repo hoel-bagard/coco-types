@@ -18,7 +18,7 @@ classifiers = [
 ]
 license = {text = "MIT"}
 dynamic = ["version"]
-dependencies = ["pydantic"]
+dependencies = ["pydantic", "numpy"]
 requires-python = ">=3.9"
 
 [project.urls]
@@ -113,22 +113,21 @@ docstring-convention = "google"
 import-order-style = "smarkets"
 application_import_names = "src"
 
-# D1    # Do not require docstrings
-# W503  # Line break occurred before a binary operator  (Should already be gone so...)
-# E226  # Missing whitespace around arithmetic operator  --> 0.1*b + 0.2*c is considered "wrong"
-# N805  # first argument of a method should be named 'self'
-# A003  # class attribute "id" is shadowing a python builtin
-ignore = ["D1", "W503", "E226", "N805", "A003"]
-inline-quotes = "double"
-
 # F401  # Imported but unused
 # N801  # class name 'COCO_RLE' should use CapWords convention
 per-file-ignores = [
     "__init__.py:F401,F403",
     "*detection.py:N801"
 ]
+exclude = ["env", "venv"]
 
+# D1    # Do not require docstrings
+# W503  # Line break occurred before a binary operator  (Should already be gone so...)
+# E226  # Missing whitespace around arithmetic operator  --> 0.1*b + 0.2*c is considered "wrong"
+# N805  # first argument of a method should be named 'self'
+# A003  # class attribute "id" is shadowing a python builtin
+# N815  # variable 'X' in class scope should not be mixedCase
+ignore = ["A003", "D1", "W503", "E226", "N805", "N815"]
+inline-quotes = "double"
 # Cyclomatic complexity for functions
 max-complexity = 20
-
-exclude = ["env", "venv"]

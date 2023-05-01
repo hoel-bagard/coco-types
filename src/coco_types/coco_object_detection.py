@@ -1,5 +1,7 @@
 from typing import Generic, Literal, TypeAlias, TypeVar
 
+import numpy as np
+import numpy.typing as npt
 from pydantic import BaseModel
 from pydantic.generics import GenericModel
 
@@ -73,3 +75,17 @@ class Dataset(BaseModel):
     images: list[Image]
     annotations: list[AnnotationAny]
     categories: list[Category]
+
+
+class EvaluationResult(BaseModel):
+    image_id: int
+    category_id: int
+    aRng: list[int]
+    maxDet: int
+    dtIds: list[int]
+    gtIds: list[int]
+    dtMatches: npt.NDArray[np.float64]
+    gtMatches: npt.NDArray[np.float64]
+    dtScores: list[float]
+    gtIgnore: npt.NDArray[np.float64]
+    dtIgnore: npt.NDArray[np.float64]
