@@ -13,6 +13,7 @@ classifiers = [
             "Programming Language :: Python :: 3",
             "Programming Language :: Python :: 3.9",
             "Programming Language :: Python :: 3.10",
+            "Programming Language :: Python :: 3.11",
             "Operating System :: OS Independent",
             "Intended Audience :: Developers",
 ]
@@ -26,7 +27,7 @@ requires-python = ">=3.9"
 "Bug Tracker" = "https://github.com/hoel-bagard/coco-types/issues"
 
 [project.optional-dependencies]
-test = ["pytest"]
+test = ["pytest", "nox"]
 dev = ["pre-commit", "pip-tools", "ruff", "pyright"]
 build = ["hatch"]
 flake8 = ["flake8", "flake8-bugbear", "flake8-comprehensions", "flake8-docstrings", "flake8-builtins", "flake8-quotes", "pep8-naming", "flake8-import-order", "flake8-noqa", "flake8-broken-line", "flake8-commas", "Flake8-pyproject"]
