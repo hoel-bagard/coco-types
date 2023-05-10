@@ -27,7 +27,7 @@ repos:
     rev: v1.1.300
     hooks:
     - id: pyright
-      additional_dependencies: ["pydantic", "numpy", "coco_types"]
+      additional_dependencies: ["pydantic", "numpy", "coco_types", "nox"]
 
   - repo: https://github.com/PyCQA/flake8
     rev: 5.0.4
