@@ -1,4 +1,4 @@
-name: pytest
+name: Nox
 
 on:
   workflow_dispatch:
