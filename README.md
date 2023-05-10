@@ -1,5 +1,14 @@
 # COCO Types
 
+[![PyPI](https://img.shields.io/pypi/v/coco-types?color=green&style=flat)](https://pypi.org/project/coco-types)
+[![PyPI - Implementation](https://img.shields.io/pypi/implementation/coco-types?style=flat)](https://pypi.org/project/coco-types)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/coco-types?style=flat)](https://pypi.org/project/coco-types)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/coco-types?style=flat-square)](https://pypistats.org/packages/coco-types)
+[![License](https://img.shields.io/pypi/l/coco-types?style=flat)](https://opensource.org/licenses/MIT)
+![Linting](https://github.com/hoel-bagard/coco-types/actions/workflows/pre-commit.yaml/badge.svg)
+![Tests](https://github.com/hoel-bagard/coco-types/actions/workflows/nox.yaml/badge.svg)
+
+Package for handling COCO datasets types.\
 Note: This package loads the data as is and does not create dictionaries mapping ids to lists of images/annotations/categories.
 
 ## Installation
