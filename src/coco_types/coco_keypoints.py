@@ -27,9 +27,9 @@ class AnnotationKP(Annotation[TSegmentation], Generic[TSegmentation]):
 
     @validator("num_keypoints")
     def num_keypoints_matches_keypoints_length(cls, num_keypoints: int, values: dict[str, list[int]]) -> int:
-        if len(values["keypoints"]) // 3 != num_keypoints:
-            raise ValueError(f"Length of the keypoints list ({len(values['keypoints'])}) does not match "
-                             f"the number of keypoints ({num_keypoints}).")
+        if non_zero_kp := sum([i % 3 == 0 and p != 0 for i, p in enumerate(values["keypoints"])]) != num_keypoints:
+            raise ValueError(f"Number of non-zero keypoints ({non_zero_kp}) does not match "
+                             f"the number of keypoints ({num_keypoints=}).")
         return num_keypoints
 
 
